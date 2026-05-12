@@ -3,7 +3,11 @@
 define('API_KEY', 'GramBazar_Secure_Key_2024');
 
 // Include root config for DB credentials
-require_once __DIR__ . '/../config.php';
+if (file_exists(__DIR__ . '/../config.php')) {
+    require_once __DIR__ . '/../config.php';
+} else {
+    require_once __DIR__ . '/../config.production.php';
+}
 
 // Set headers for JSON response
 header("Access-Control-Allow-Origin: *");

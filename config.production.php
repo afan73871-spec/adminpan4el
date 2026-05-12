@@ -8,7 +8,7 @@
 define('DB_HOST', 'sql306.infinityfree.com');
 define('DB_NAME', 'if0_41751867_gram_bazar'); // Replace 'gram_bazar' with your actual DB name suffix
 define('DB_USER', 'if0_41751867');
-define('DB_PASS', 'YOUR_INFINITYFREE_PASSWORD'); // Enter your InfinityFree account password here
+define('DB_PASS', 'xQ37VrziDbYa6hL'); // InfinityFree account password
 define('DB_CHARSET', 'utf8mb4');
 
 // Site Configuration
@@ -21,7 +21,7 @@ define('UPLOAD_PATH_PRODUCTS', 'assets/products/');
 define('UPLOAD_PATH_PROFILES', 'assets/profiles/');
 
 // Error Reporting (Set to false in production)
-define('DEBUG_MODE', false);
+define('DEBUG_MODE', true);
 
 if (DEBUG_MODE) {
     error_reporting(E_ALL);
