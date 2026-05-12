@@ -1,5 +1,9 @@
 <?php
-require_once '../../includes/db_connect.php';
+if (file_exists('../../includes/db_master.php')) {
+    require_once '../../includes/db_master.php';
+} else {
+    require_once '../../db_master.php';
+}
 validateAPIKey();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {

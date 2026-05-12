@@ -1,8 +1,7 @@
-<?php
-if (file_exists('includes/db_connect.php')) {
-    require_once 'includes/db_connect.php';
+if (file_exists('includes/db_master.php')) {
+    require_once 'includes/db_master.php';
 } else {
-    require_once 'db_connect.php';
+    require_once 'db_master.php';
 }
 
 // Validate API Key
