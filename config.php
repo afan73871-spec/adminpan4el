@@ -1,18 +1,19 @@
 <?php
 /**
  * GramBazar Admin Panel Configuration
+ * Hosting Volume: vol5_2
  */
 
 // Database Configuration
-define('DB_HOST', 'db.fr-pari1.bengt.wasmernet.com');
-define('DB_NAME', 'gram_bazar');
-define('DB_USER', '8b65cfa670e08000921b8045e3f2');
-define('DB_PASS', '069f8b65-cfa6-7206-8000-a49dae817a9a');
+define('DB_HOST', 'sql306.infinityfree.com');
+define('DB_NAME', 'if0_41751867_gram_bazar'); 
+define('DB_USER', 'if0_41751867');
+define('DB_PASS', 'xQ37VrziDbYa6hL'); 
 define('DB_CHARSET', 'utf8mb4');
 
 // Site Configuration
 define('SITE_NAME', 'GramBazar Admin');
-define('SITE_URL', 'https://grambazaradmin.wasmer.app/'); // Update this to your actual URL
+define('SITE_URL', 'http://i79b0hsp.infinityfree.com/');
 define('CURRENCY', '₹');
 
 // Upload Paths
