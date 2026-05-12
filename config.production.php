@@ -1,70 +1,38 @@
 <?php
-// Enable error reporting to debug the 500 error
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-mysqli_report(MYSQLI_REPORT_OFF); // Prevent PHP 8.1+ from throwing 500 errors on DB connection failure
+/**
+ * GramBazar InfinityFree Production Configuration
+ * Hosting Volume: vol5_2
+ */
 
-// Production Database Configuration (InfinityFree)
-define('DB_HOST', 'sql211.infinityfree.com');
-define('DB_USER', 'if0_41794359');
-define('DB_PASS', 'ge0PmauzOh'); // ⚠️ Replace this with your vPanel password
-define('DB_NAME', 'if0_41794359_admin'); // ⚠️ Replace 'admin' with whatever you named your database
+// Database Configuration
+define('DB_HOST', 'sql306.infinityfree.com');
+define('DB_NAME', 'if0_41751867_gram_bazar'); // Replace 'gram_bazar' with your actual DB name suffix
+define('DB_USER', 'if0_41751867');
+define('DB_PASS', 'YOUR_INFINITYFREE_PASSWORD'); // Enter your InfinityFree account password here
+define('DB_CHARSET', 'utf8mb4');
 
-// Create Database Connection
-$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+// Site Configuration
+define('SITE_NAME', 'GramBazar Admin');
+define('SITE_URL', 'http://i79b0hsp.infinityfree.com/');
+define('CURRENCY', '₹');
 
-// Check Connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Upload Paths
+define('UPLOAD_PATH_PRODUCTS', 'assets/products/');
+define('UPLOAD_PATH_PROFILES', 'assets/profiles/');
+
+// Error Reporting (Set to false in production)
+define('DEBUG_MODE', false);
+
+if (DEBUG_MODE) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+} else {
+    error_reporting(0);
+    ini_set('display_errors', 0);
 }
 
-// Set charset
-$conn->set_charset("utf8");
-
-// Session Configuration
-session_start();
-
-// Company Details
-define('COMPANY_NAME', 'GramBazar');
-define('COMPANY_ADDRESS', 'GramBazar Hub, India');
-define('COMPANY_PHONE', '+91-XXXXXXXXXX');
-
-// Time Zone
-date_default_timezone_set('Asia/Kolkata');
-
-// Helper Functions
-function clean_input($data) {
-    global $conn;
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $conn->real_escape_string($data);
-}
-
-function format_currency($amount) {
-    return '₹' . number_format($amount, 2);
-}
-
-function format_date($date) {
-    return date('d-m-Y h:i A', strtotime($date));
-}
-
-function generate_order_number() {
-    return 'GB' . date('Ymd') . rand(1000, 9999);
-}
-
-function is_logged_in() {
-    return isset($_SESSION['admin_id']);
-}
-
-function redirect($url) {
-    header("Location: $url");
-    exit();
-}
-
-// Check if user is logged in
-if (!is_logged_in() && basename($_SERVER['PHP_SELF']) != 'login.php') {
-    redirect('login.php');
+// Start Session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 ?>
