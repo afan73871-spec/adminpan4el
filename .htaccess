@@ -1,0 +1,8 @@
+# GramBazar InfinityFree Fix
+DirectoryIndex portal.php index.php index.html
+
+# Prevent 404 by ensuring files are found
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+</IfModule>
