@@ -1,5 +1,9 @@
 <?php
-require_once 'includes/db_connect.php';
+if (file_exists('includes/db_connect.php')) {
+    require_once 'includes/db_connect.php';
+} else {
+    require_once 'db_connect.php';
+}
 
 // Validate API Key
 validateAPIKey();

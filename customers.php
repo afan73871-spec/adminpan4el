@@ -1,6 +1,15 @@
 <?php
-include 'includes/db.php';
-include 'includes/header.php';
+if (file_exists('includes/db.php')) {
+    include 'includes/db.php';
+} else {
+    include 'db.php';
+}
+
+if (file_exists('includes/header.php')) {
+    include 'includes/header.php';
+} else {
+    include 'header.php';
+}
 
 $customers = $pdo->query("SELECT c.*, (SELECT COUNT(*) FROM orders WHERE customer_id = c.id) as total_orders FROM customers c ORDER BY c.created_at DESC")->fetchAll();
 ?>

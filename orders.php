@@ -1,6 +1,15 @@
 <?php
-include 'includes/db.php';
-include 'includes/header.php';
+if (file_exists('includes/db.php')) {
+    include 'includes/db.php';
+} else {
+    include 'db.php';
+}
+
+if (file_exists('includes/header.php')) {
+    include 'includes/header.php';
+} else {
+    include 'header.php';
+}
 
 $status_filter = $_GET['status'] ?? 'all';
 
@@ -106,4 +115,8 @@ function updateStatus(id, currentStatus) {
 }
 </script>
 
-<?php include 'includes/footer.php'; ?>
+<?php if (file_exists('includes/footer.php')) {
+    include 'includes/footer.php';
+} else {
+    include 'footer.php';
+} ?>

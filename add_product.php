@@ -1,6 +1,15 @@
 <?php
-include 'includes/db.php';
-include 'includes/header.php';
+if (file_exists('includes/db.php')) {
+    include 'includes/db.php';
+} else {
+    include 'db.php';
+}
+
+if (file_exists('includes/header.php')) {
+    include 'includes/header.php';
+} else {
+    include 'header.php';
+}
 
 $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
 $vendors = $pdo->query("SELECT * FROM vendors")->fetchAll();

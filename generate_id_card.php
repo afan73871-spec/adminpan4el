@@ -1,5 +1,9 @@
 <?php
-include 'includes/db.php';
+if (file_exists('includes/db.php')) {
+    include 'includes/db.php';
+} else {
+    include 'db.php';
+}
 
 if (!isset($_GET['id'])) die("ID required");
 
