@@ -1,8 +1,12 @@
 <?php
-if (file_exists(dirname(__DIR__) . '/config.php')) {
-    require_once dirname(__DIR__) . '/config.php';
+if (file_exists(__DIR__ . '/config.php')) {
+    require_once __DIR__ . '/config.php';
+} elseif (file_exists(__DIR__ . '/config.production.php')) {
+    require_once __DIR__ . '/config.production.php';
+} elseif (file_exists(__DIR__ . '/../config.php')) {
+    require_once __DIR__ . '/../config.php';
 } else {
-    require_once dirname(__DIR__) . '/config.production.php';
+    require_once __DIR__ . '/../config.production.php';
 }
 
 $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;

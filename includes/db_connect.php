@@ -3,7 +3,11 @@
 define('API_KEY', 'GramBazar_Secure_Key_2024');
 
 // Include root config for DB credentials
-if (file_exists(__DIR__ . '/../config.php')) {
+if (file_exists(__DIR__ . '/config.php')) {
+    require_once __DIR__ . '/config.php';
+} elseif (file_exists(__DIR__ . '/config.production.php')) {
+    require_once __DIR__ . '/config.production.php';
+} elseif (file_exists(__DIR__ . '/../config.php')) {
     require_once __DIR__ . '/../config.php';
 } else {
     require_once __DIR__ . '/../config.production.php';
